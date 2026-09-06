@@ -21,8 +21,12 @@ const {
   jsonLd,
 } = Astro.props;
 
-const siteUrl = "https://permadcost.com";
-const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+// Derive URLs from Astro config (site + base) so they automatically
+// adapt to GitHub Pages or any other deployment target.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || "https://durjaygp.github.io";
+const canonicalUrl = new URL(base + canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(base + ogImage, siteUrl).toString();
 ---
 
 <title>{title}</title>
@@ -34,7 +38,7 @@ const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
-<meta property="og:image" content={new URL(ogImage, siteUrl).toString()} />
+<meta property="og:image" content={ogImageUrl} />
 
 <!-- Twitter/X card -->
 <meta name="twitter:card" content="summary_large_image" />
