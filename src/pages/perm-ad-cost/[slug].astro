@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Seo from "../../components/Seo.astro";
+import { cities } from "../../data/cities";
+
+export function getStaticPaths() {
+  return cities.map((c) => ({
+    params: { slug: c.slug },
+    props: { city: c },
+  }));
+}
+
+const { city } = Astro.props;
+
+const pageTitle = `PERM Sunday Newspaper Ad Cost in ${city.city}, ${city.stateAbbr} | PermAdCost`;
+const pageDescription = city.priceRange
+  ? `PERM Sunday newspaper ad pricing for ${city.city}, ${city.state}: typically $${city.priceRange.low}-$${city.priceRange.high} per ad in ${city.newspaper}. Get a fast, transparent quote.`
+  : `Placing a PERM Sunday newspaper ad in ${city.city}, ${city.state}? See what's required in ${city.newspaper} and request a fast, transparent quote.`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: `What newspaper is used for PERM ads in ${city.city}, ${city.stateAbbr}?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `PERM Sunday newspaper ads for the ${city.city} area typically run in ${city.newspaper}, the newspaper of general circulation for this market.`,
+      },
+    },
+    ...(city.priceRange
+      ? [
+          {
+            "@type": "Question",
+            name: `How much does a PERM ad cost in ${city.city}?`,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `A PERM Sunday newspaper ad in ${city.city} typically costs between $${city.priceRange.low} and $${city.priceRange.high} per ad, and two Sunday ads are required.`,
+            },
+          },
+        ]
+      : []),
+  ],
+};
+---
+
+<Layout>
+  <Fragment slot="head">
+    <Seo
+      title={pageTitle}
+      description={pageDescription}
+      canonicalPath={`/perm-ad-cost/${city.slug}`}
+      jsonLd={jsonLd}
+    />
+  </Fragment>
+
+  <main>
+    <span class="eyebrow">&#10003; 20 CFR &sect; 656.17 compliant placement</span>
+
+    <h1>PERM Sunday Newspaper Ad Cost in {city.city}, {city.stateAbbr}</h1>
+    <p class="lede">
+      Employers filing a PERM labor certification for a position in
+      {city.city}, {city.state} are required to place two Sunday newspaper
+      ads in {city.newspaper}, the newspaper of general circulation for
+      this area.
+    </p>
+
+    <div class="rate-notice">
+      {city.priceRange ? (
+        <>
+          <div class="figure">${city.priceRange.low}&ndash;${city.priceRange.high} / ad</div>
+          <p>Two ads required, run on different Sundays. Final price depends on ad word count and current rate card.</p>
+        </>
+      ) : (
+        <>
+          <div class="figure">Rate card on request</div>
+          <p>Pricing for {city.newspaper} varies by ad length. Request a quote and we'll confirm exact pricing.</p>
+        </>
+      )}
+    </div>
+
+    <a class="cta" href="/quote">Request a Quote</a>
+  </main>
+</Layout>

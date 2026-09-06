@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Seo from "../../components/Seo.astro";
+import { wageTransparencyStates } from "../../data/wageTransparencyStates";
+
+const postingStates = wageTransparencyStates.filter((s) => s.requiresRangeInPosting);
+const onRequestStates = wageTransparencyStates.filter((s) => !s.requiresRangeInPosting);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do PERM Sunday newspaper ads need to include a salary range?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It depends on the state where the job is located. States that require a salary range in every job posting also apply that requirement to PERM recruitment ads, since a PERM ad is a public job posting under state law, separate from DOL's own PERM regulations.",
+      },
+    },
+  ],
+};
+---
+
+<Layout>
+  <Fragment slot="head">
+    <Seo
+      title="Wage Transparency Laws by State (2026) | PermAdCost.com"
+      description="Which states require a salary range in job postings, including PERM recruitment ads. Current effective dates and employer thresholds, state by state."
+      canonicalPath="/wage-transparency-laws-by-state/"
+      jsonLd={jsonLd}
+    />
+  </Fragment>
+
+  <main>
+    <span class="eyebrow">&#10003; Reviewed for currency &mdash; last checked Aug 2026</span>
+
+    <h1>Wage Transparency Laws by State</h1>
+    <p class="lede">
+      A growing number of states require employers to disclose a salary or
+      wage range in every job posting &mdash; including PERM Sunday newspaper
+      ads, since these are public job postings under state law. Below is the
+      current list of states with these requirements.
+    </p>
+
+    <div class="rate-notice">
+      <div class="figure">{postingStates.length} states + DC require a range in the posting itself</div>
+      <p>{onRequestStates.length} more require disclosure on request or before an offer, not in the ad text.</p>
+    </div>
+
+    <div class="section-label">States requiring a range in the posting</div>
+    <ul class="market-list">
+      {postingStates.map((s) => (
+        <li>
+          <span>
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 1.05rem;">{s.state}</span>
+            <br />
+            <span style="font-size: 0.78rem; color: var(--slate);">{s.employerThreshold} &middot; effective {s.effectiveDate}</span>
+          </span>
+          <a href={s.sourceUrl} target="_blank" rel="noopener" class="price" style="text-decoration: none;">{s.sourceLabel} &rarr;</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="section-label">States requiring disclosure on request only</div>
+    <ul class="market-list">
+      {onRequestStates.map((s) => (
+        <li>
+          <span>
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 1.05rem;">{s.state}</span>
+            <br />
+            <span style="font-size: 0.78rem; color: var(--slate);">{s.employerThreshold} &middot; effective {s.effectiveDate}</span>
+          </span>
+          <a href={s.sourceUrl} target="_blank" rel="noopener" class="price" style="text-decoration: none;">{s.sourceLabel} &rarr;</a>
+        </li>
+      ))}
+    </ul>
+
+    <p class="lede" style="margin-top: 2rem; font-size: 0.85rem;">
+      This page is for planning purposes and is not legal advice. Thresholds,
+      effective dates, and requirements change &mdash; confirm current
+      requirements with your attorney before finalizing ad text. New states
+      are added to this list as laws take effect.
+    </p>
+
+    <a class="cta" href="/quote">Request a Quote</a>
+  </main>
+</Layout>

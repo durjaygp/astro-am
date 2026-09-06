@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Seo from "../components/Seo.astro";
+---
+
+<Layout>
+  <Fragment slot="head">
+    <Seo
+      title="Request a PERM Ad Quote | PermAdCost.com"
+      description="Get a fast, no-hassle quote for your PERM Sunday newspaper ad placement. Just the details we actually need."
+      canonicalPath="/quote"
+    />
+  </Fragment>
+
+  <main>
+    <h1>Request a Quote</h1>
+    <p class="lede">Tell us about the position and we'll confirm exact pricing.</p>
+
+    <form method="POST" action="#" style="margin-top: 1.75rem; display: grid; gap: 1rem; max-width: 460px;">
+      <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate);">
+        Job Title
+        <input type="text" name="jobTitle" required style="display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem; border: 1px solid var(--hairline); background: white; font-family: 'IBM Plex Sans', sans-serif;" />
+      </label>
+      <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate);">
+        Job Location (City, State)
+        <input type="text" name="jobLocation" required style="display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem; border: 1px solid var(--hairline); background: white; font-family: 'IBM Plex Sans', sans-serif;" />
+      </label>
+      <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate);">
+        Company Name
+        <input type="text" name="company" required style="display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem; border: 1px solid var(--hairline); background: white; font-family: 'IBM Plex Sans', sans-serif;" />
+      </label>
+      <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate);">
+        Who Are You?
+        <select name="role" style="display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem; border: 1px solid var(--hairline); background: white; font-family: 'IBM Plex Sans', sans-serif;">
+          <option>Attorney</option>
+          <option>Paralegal</option>
+          <option>Employer</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--slate);">
+        Email
+        <input type="email" name="email" required style="display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem; border: 1px solid var(--hairline); background: white; font-family: 'IBM Plex Sans', sans-serif;" />
+      </label>
+      <button type="submit" class="cta" style="border: none; cursor: pointer; justify-self: start;">Send Quote Request</button>
+    </form>
+  </main>
+</Layout>

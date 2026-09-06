@@ -1,0 +1,46 @@
+---
+// src/components/Seo.astro
+// Reusable SEO head component. Every page passes its own values in ---
+// nothing is auto-generated or hidden behind a plugin, so every page
+// (including all the templated metro pages) gets a distinct, correct
+// title/description instead of one generic pattern repeated 30 times.
+
+interface Props {
+  title: string;               // shows in the browser tab + search result title
+  description: string;         // shows as the search result snippet
+  canonicalPath: string;       // e.g. "/perm-ad-cost/atlanta-ga"
+  ogImage?: string;            // optional social share image
+  jsonLd?: Record<string, unknown>; // optional structured data block
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogImage = "/og-default.png",
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = "https://permadcost.com";
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={new URL(ogImage, siteUrl).toString()} />
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

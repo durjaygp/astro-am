@@ -1,0 +1,286 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Seo from "../components/Seo.astro";
+import { cities } from "../data/cities";
+---
+
+<Layout>
+  <Fragment slot="head">
+    <Seo
+      title="PERM Sunday Newspaper Ad Cost & Placement | PermAdCost.com"
+      description="Transparent PERM Sunday newspaper ad pricing and fast placement for immigration attorneys and employers. See real costs by city, no hidden markups."
+      canonicalPath="/"
+    />
+  </Fragment>
+
+  <!-- ═══ HERO — Dark, with vintage newspaper ad card ═══ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow">&#10003; 20 CFR &sect; 656.17 compliant placement</span>
+
+        <h1>Reach every PERM market with transparent ad pricing.</h1>
+
+        <ul class="hero-features">
+          <li>Published pricing &mdash; no hidden markups or surprise invoices</li>
+          <li>Sunday newspaper placement in papers of general circulation</li>
+          <li>Fast turnaround &mdash; ads placed within one business day</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="hero-cta" href="/quote">Get Started</a>
+          <a class="hero-cta-secondary" href="#markets">Browse Markets &darr;</a>
+        </div>
+
+        <p class="hero-subtitle">
+          Need filing dates? <a href="/perm-timeline-calculator">Use the free timeline calculator.</a>
+        </p>
+      </div>
+
+      <!-- Vintage "classified ad" card -->
+      <div class="hero-ad-card">
+        <div class="ad-title">HELP WANTED &mdash; Software Engineer</div>
+        <div class="ad-body">
+          Seeking qualified candidate for full-time position in Atlanta, GA.
+          Must possess Bachelor's degree in Computer Science or related field
+          and 2 years of experience. Competitive salary offered.
+          Apply to: HR Department, Acme Corp.
+        </div>
+        <div class="ad-price">$450&ndash;$900 / ad</div>
+        <div class="ad-fine-print">Typical rate for The Atlanta Journal-Constitution</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS BAR ═══ -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-figure">$300&ndash;$3k</div>
+        <div class="stat-label">Typical cost per ad across U.S. markets</div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure">2</div>
+        <div class="stat-label">Sunday newspaper ads required per PERM case</div>
+      </div>
+      <div class="stat">
+        <div class="stat-figure">30 days</div>
+        <div class="stat-label">Quiet period before you can file ETA 9089</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES GRID — "How it works" ═══ -->
+  <section class="features-section">
+    <div class="features-section-inner">
+      <h2>How PermAdCost works for you</h2>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📰</div>
+          <h3>Real newspaper rates</h3>
+          <p>We publish actual rate-card pricing from papers of general circulation. No guessing, no calling around.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast placement</h3>
+          <p>Submit your ad details and we place it in the next available Sunday edition. One business day turnaround.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>DOL-compliant ads</h3>
+          <p>Every ad follows 20 CFR § 656.17 requirements, including state wage transparency laws where applicable.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Attorney-friendly</h3>
+          <p>Built for immigration attorneys and paralegals. We speak PERM, not generic ad sales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISON TABLE ═══ -->
+  <section class="compare-section">
+    <div class="compare-section-inner">
+      <h2>How we compare</h2>
+      <p class="compare-lead">
+        PermAdCost combines transparent pricing, fast placement, and compliance
+        expertise &mdash; without the guesswork of other channels.
+      </p>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="highlight">PermAdCost</th>
+              <th>DIY placement</th>
+              <th>Ad agencies</th>
+              <th>Legal vendors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Published pricing</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+            </tr>
+            <tr>
+              <td>PERM-specific expertise</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>No markup on ad rates</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+            </tr>
+            <tr>
+              <td>Wage law compliance</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>One-day placement</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+            </tr>
+            <tr>
+              <td>Multi-market coverage</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✕</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="testimonials-section">
+    <div class="testimonials-section-inner">
+      <h2>What attorneys are saying</h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>Finally, a service that just publishes the price. I used to spend hours calling newspaper ad departments for PERM rate cards. Now I look it up in 30 seconds.</p>
+          <div class="testimonial-author">Sarah M.</div>
+          <div class="testimonial-role">Immigration Attorney, Atlanta</div>
+        </div>
+        <div class="testimonial-card">
+          <p>The timeline calculator alone saves me a phone call per case. Combined with transparent ad pricing, this is exactly what our firm needed.</p>
+          <div class="testimonial-author">David R.</div>
+          <div class="testimonial-role">Managing Partner, Charlotte</div>
+        </div>
+        <div class="testimonial-card">
+          <p>We switched from our old vendor and saved 30% on newspaper ads. No hidden markups, no surprise fees. Highly recommend for any PERM practice.</p>
+          <div class="testimonial-author">Jennifer L.</div>
+          <div class="testimonial-role">Paralegal, Chicago</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="cta-banner">
+    <h2>Place your PERM ad today &mdash; pricing published, not hidden.</h2>
+    <a class="cta-banner-btn" href="/quote">Request a Free Quote</a>
+  </section>
+
+  <!-- ═══ MARKET LIST ═══ -->
+  <section class="markets-section" id="markets">
+    <div class="markets-section-inner">
+      <h2>Browse by market</h2>
+      <div class="section-label" style="margin-top: 0.5rem;">Available cities</div>
+      <ul class="market-list">
+        {cities.map((c) => (
+          <li>
+            <a href={`/perm-ad-cost/${c.slug}`}>{c.city}, {c.stateAbbr}</a>
+            <span class="price">{c.priceRange ? `$${c.priceRange.low}\u2013$${c.priceRange.high}` : "Request quote"}</span>
+          </li>
+        ))}
+      </ul>
+      <a class="cta" href="/quote" style="margin-top: 1.5rem;">Request a Quote</a>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ACCORDION ═══ -->
+  <section class="faq-section">
+    <div class="faq-section-inner">
+      <h2>Frequently asked questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is a PERM Sunday newspaper ad?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            A PERM labor certification requires employers to place two Sunday newspaper ads in a newspaper of general circulation in the area of intended employment. These ads must run on two different Sundays and include the job title, duties, requirements, and employer contact information as specified by DOL regulations (20 CFR § 656.17).
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How much does a PERM newspaper ad cost?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Costs vary by market and newspaper. Typical range is $300–$3,000 per ad depending on the newspaper's circulation size, the ad's word count, and current rate card. We publish real pricing for each market — no hidden markups or surprise fees.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need to include a salary range in the ad?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            It depends on state law. A growing number of states (including California, New York, Colorado, and Washington) require salary ranges in job postings, which includes PERM recruitment ads. Check our <a href="/wage-transparency-laws-by-state" style="color: var(--brass); text-decoration: underline;">Wage Transparency Laws</a> page for the current list.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does PERM recruitment take?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            From the start of recruitment to the earliest filing date is typically 60–75 days, depending on when your Sunday ad dates fall. This includes the SWA job order (30 days), two Sunday newspaper ads, and the mandatory 30-day quiet period. Use our <a href="/perm-timeline-calculator" style="color: var(--brass); text-decoration: underline;">Timeline Calculator</a> to get exact dates.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What newspaper should I use for my PERM ad?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            DOL requires the ad to run in a "newspaper of general circulation" in the area of intended employment. This is typically the major daily/Sunday newspaper for that metro area. Our city pages list the appropriate newspaper for each market we cover.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
